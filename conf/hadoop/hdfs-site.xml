@@ -5,4 +5,16 @@
         <name>dfs.replication</name>
         <value>1</value>
     </property>
+    <property>
+        <name>dfs.permission</name>
+        <value>false</value>
+    </property>
+    <property>
+        <name>dfs.namenode.name.dir</name>
+	<value>/app/namenode/</value>
+    </property>
+    <property>
+        <name>dfs.datanode.data.dir</name>
+	<value>/app/datanode/</value>
+    </property>
 </configuration>
