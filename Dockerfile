@@ -2,14 +2,16 @@
 FROM frolvlad/alpine-glibc
 RUN apk update
 RUN apk upgrade
-RUN apk add bash bash-completion wget curl ca-certificates libstdc++ java-cacerts openssh-server
+RUN apk add bash bash-completion wget curl ca-certificates libstdc++ java-cacerts openssh-server maven
 RUN ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
 RUN cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 RUN chmod 0600 ~/.ssh/authorized_keys
 WORKDIR /app
 ADD ./app /app
 ENV JAVA_HOME /app/jdk1.8.0_162
-ENV PATH ${PATH}:${JAVA_HOME}/bin
+ENV PATH ${JAVA_HOME}/bin:${PATH}
+RUN echo "$JAVA_HOME"
+RUN echo "$PATH"
 CMD bash
 
 #RUN pip install --trusted-host pypi.python.org -r requirements.txt
