@@ -1,3 +1,6 @@
 #!/bin/bash
 service ssh start
-sudo -u docker /bin/bash
+export PS1="ps1"
+. /etc/bash.bashrc
+"$HADOOP_HOME"/sbin/start-all.sh
+sudo su docker
