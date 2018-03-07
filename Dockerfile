@@ -9,12 +9,16 @@ apt-get install -y wget curl ca-certificates openssh-server maven openssh-client
 WORKDIR /app
 ADD ./archives/jdk-8u162-linux-x64.tar.gz /app
 ADD ./archives/hadoop-3.0.0.tar.gz /app
+ADD ./archives/pig-0.17.0.tar.gz /app
+ADD /samples /samples
 
 # Fixing su
 #RUN chmod u+s /bin/su
 
 # docker user and group
 RUN useradd -m -G sudo -d /home/docker -s /bin/bash docker
+RUN chown docker:docker -R /samples
+RUN chown docker:docker /app
 
 # SUDO
 COPY ./conf/sudoers /tmp
@@ -34,10 +38,8 @@ RUN chown -R docker:docker /home/docker/.ssh
 COPY ./conf/hadoop/* /app/hadoop-3.0.0/etc/hadoop/
 
 # BASHRC
-RUN touch /etc/bash.bashrc
-COPY ./conf/bash/bashrc /tmp
-RUN cat /tmp/bashrc >>/etc/bash.bashrc
-RUN rm /tmp/bashrc
+COPY ./conf/bash/commonrc /etc
+RUN echo '. /etc/commonrc' >>/etc/bash.bashrc
 
 # HADOOP
 RUN sed 's+^# export JAVA_HOME=$+export JAVA_HOME=/app/jdk1.8.0_162/+' -i /app/hadoop-3.0.0/etc/hadoop/hadoop-env.sh

@@ -1,6 +1,6 @@
 #!/bin/bash
 service ssh start
-export PS1="ps1"
-. /etc/bash.bashrc
+. /etc/commonrc
+hdfs namenode -format
 "$HADOOP_HOME"/sbin/start-all.sh
 sudo su docker

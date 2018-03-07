@@ -10,9 +10,18 @@ export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
 export JAVA_HOME=/app/jdk1.8.0_162
 export PATH="${JAVA_HOME}/bin:${HADOOP_HOME}/bin${PATH:+:}${PATH}"
 
-export HDFS_NAMENODE_USER="root"
-export HDFS_DATANODE_USER="root"
-export HDFS_SECONDARYNAMENODE_USER="root"
-export YARN_RESOURCEMANAGER_USER="root"
-export YARN_NODEMANAGER_USER="root"
+export HDFS_NAMENODE_USER="docker"
+export HDFS_DATANODE_USER="docker"
+export HDFS_SECONDARYNAMENODE_USER="docker"
+export YARN_RESOURCEMANAGER_USER="docker"
+export YARN_NODEMANAGER_USER="docker"
+
+# PIG
+export PIG_HOME=/app/pig-0.17.0
+if [ "x$PATH" = "x" ] ; then
+	export PATH="$PIG_HOME"/bin
+else
+	export PATH="$PATH":"$PIG_HOME"/bin
+fi
+export PIG_CLASSPATH="$HADOOP_HOME"/conf
 

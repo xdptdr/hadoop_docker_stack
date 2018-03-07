@@ -21,3 +21,10 @@ if [ ! -e archives/hadoop-3.0.0.tar.gz ] ; then
 else
 	echo "archives/hadoop-3.0.0.tar.gz found"
 fi
+
+if [ ! -e archives/pig-0.17.0.tar.gz ] ; then
+	wget http://apache.crihan.fr/dist/pig/pig-0.17.0/pig-0.17.0.tar.gz \
+	-O archives/pig-0.17.0.tar.gz
+else
+	echo "archives/pig-0.17.0.tar.gz found"
+fi
