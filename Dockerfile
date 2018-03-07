@@ -3,7 +3,7 @@ FROM ubuntu
 # Updating, upgrading and installing some packages
 RUN apt-get update && \
 apt-get upgrade -y && \
-apt-get install -y wget curl ca-certificates openssh-server maven openssh-client sudo
+apt-get install -y wget curl ca-certificates openssh-server maven openssh-client sudo vim
 
 # UNPACK
 WORKDIR /app
