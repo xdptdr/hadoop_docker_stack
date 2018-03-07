@@ -28,3 +28,17 @@ if [ ! -e archives/pig-0.17.0.tar.gz ] ; then
 else
 	echo "archives/pig-0.17.0.tar.gz found"
 fi
+
+if [ ! -e archives/apache-hive-2.3.2-bin.tar.gz ] ; then
+	wget http://apache.crihan.fr/dist/hive/hive-2.3.2/apache-hive-2.3.2-bin.tar.gz \
+	-O archives/apache-hive-2.3.2-bin.tar.gz
+else
+	echo "archives/apache-hive-2.3.2-bin.tar.gz found"
+fi
+
+if [ ! -e archives/db-derby-10.14.1.0-bin.tar.gz ] ; then
+	wget http://wwwftp.ciril.fr/pub/apache//db/derby/db-derby-10.14.1.0/db-derby-10.14.1.0-bin.tar.gz \
+	-O archives/db-derby-10.14.1.0-bin.tar.gz
+else
+	echo "archives/db-derby-10.14.1.0-bin.tar.gz found"
+fi
