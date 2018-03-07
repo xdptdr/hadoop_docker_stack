@@ -18,10 +18,37 @@ export YARN_NODEMANAGER_USER="docker"
 
 # PIG
 export PIG_HOME=/app/pig-0.17.0
+export PIG_CLASSPATH="$HADOOP_HOME"/conf
 if [ "x$PATH" = "x" ] ; then
 	export PATH="$PIG_HOME"/bin
 else
 	export PATH="$PATH":"$PIG_HOME"/bin
 fi
-export PIG_CLASSPATH="$HADOOP_HOME"/conf
 
+# HIVE
+
+export HIVE_HOME=/app/apache-hive-2.3.2-bin
+
+if [ "x$PATH" != "x" ] ; then
+	export PATH="$PATH":
+fi
+export PATH="$PATH""$HIVE_HOME"/bin
+
+if [ "x$CLASSPATH" != "x" ] ; then
+	export CLASSPATH="$CLASSPATH":
+fi
+export CLASSPATH="$CLASSPATH""$HIVE_HOME"/lib/*
+
+# DERBY
+
+export DERBY_HOME=/app/db-derby-10.14.1.0-bin
+
+if [ "x$PATH" != "x" ] ; then
+	export PATH="$PATH":
+fi
+export PATH="$PATH""$DERBY_HOME"/bin
+
+if [ "x$CLASSPATH" != "x" ] ; then
+	export CLASSPATH="$CLASSPATH":
+fi
+export CLASSPATH="$CLASSPATH""$DERBY_HOME"/lib/derby.jar:"$DERBY_HOME"/lib/derbytools.jar

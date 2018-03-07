@@ -10,6 +10,8 @@ WORKDIR /app
 ADD ./archives/jdk-8u162-linux-x64.tar.gz /app
 ADD ./archives/hadoop-3.0.0.tar.gz /app
 ADD ./archives/pig-0.17.0.tar.gz /app
+ADD ./archives/apache-hive-2.3.2-bin.tar.gz /app
+ADD ./archives/db-derby-10.14.1.0-bin.tar.gz /app
 ADD /samples /samples
 
 # Fixing su
@@ -44,8 +46,14 @@ RUN echo '. /etc/commonrc' >>/etc/bash.bashrc
 # HADOOP
 RUN sed 's+^# export JAVA_HOME=$+export JAVA_HOME=/app/jdk1.8.0_162/+' -i /app/hadoop-3.0.0/etc/hadoop/hadoop-env.sh
 
+# HIVE
+COPY ./conf/hive/hive-env.sh /app/apache-hive-2.3.2-bin/conf
+COPY ./conf/hive/hive-site.xml /app/apache-hive-2.3.2-bin/conf
+COPY ./conf/hive/jpox.properties /app/apache-hive-2.3.2-bin/conf
+
 # INITIALIZATION
 COPY ./conf/start.sh /
 RUN chmod +x /start.sh
+WORKDIR /samples
 CMD /start.sh
 
