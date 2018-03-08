@@ -49,3 +49,10 @@ if [ ! -e archives/spark-2.3.0-bin-without-hadoop.tgz ] ; then
 else
 	echo "archives/spark-2.3.0-bin-without-hadoop.tgz found"
 fi
+
+if [ ! -e archives/hbase-1.4.2-bin.tar.gz ] ; then
+	wget http://apache.crihan.fr/dist/hbase/1.4.2/hbase-1.4.2-bin.tar.gz \
+	-O archives/hbase-1.4.2-bin.tar.gz
+else
+	echo "archives/hbase-1.4.2-bin.tar.gz found"
+fi

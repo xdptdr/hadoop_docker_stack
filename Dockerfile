@@ -13,6 +13,7 @@ ADD ./archives/pig-0.17.0.tar.gz /app
 ADD ./archives/apache-hive-2.3.2-bin.tar.gz /app
 ADD ./archives/db-derby-10.14.1.0-bin.tar.gz /app
 ADD ./archives/spark-2.3.0-bin-without-hadoop.tgz /app
+ADD ./archives/hbase-1.4.2-bin.tar.gz /app
 ADD /samples /samples
 
 # Fixing su
