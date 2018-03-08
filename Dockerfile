@@ -3,7 +3,7 @@ FROM ubuntu
 # Updating, upgrading and installing some packages
 RUN apt-get update && \
 apt-get upgrade -y && \
-apt-get install -y wget curl ca-certificates openssh-server maven openssh-client sudo vim
+apt-get install -y wget curl ca-certificates openssh-server maven openssh-client sudo vim scala
 
 # UNPACK
 WORKDIR /app
@@ -12,6 +12,7 @@ ADD ./archives/hadoop-3.0.0.tar.gz /app
 ADD ./archives/pig-0.17.0.tar.gz /app
 ADD ./archives/apache-hive-2.3.2-bin.tar.gz /app
 ADD ./archives/db-derby-10.14.1.0-bin.tar.gz /app
+ADD ./archives/spark-2.3.0-bin-without-hadoop.tgz /app
 ADD /samples /samples
 
 # Fixing su

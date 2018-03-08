@@ -42,3 +42,10 @@ if [ ! -e archives/db-derby-10.14.1.0-bin.tar.gz ] ; then
 else
 	echo "archives/db-derby-10.14.1.0-bin.tar.gz found"
 fi
+
+if [ ! -e archives/spark-2.3.0-bin-without-hadoop.tgz ] ; then
+	wget http://apache.crihan.fr/dist/spark/spark-2.3.0/spark-2.3.0-bin-without-hadoop.tgz \
+	-O archives/spark-2.3.0-bin-without-hadoop.tgz
+else
+	echo "archives/spark-2.3.0-bin-without-hadoop.tgz found"
+fi

@@ -52,3 +52,14 @@ if [ "x$CLASSPATH" != "x" ] ; then
 	export CLASSPATH="$CLASSPATH":
 fi
 export CLASSPATH="$CLASSPATH""$DERBY_HOME"/lib/derby.jar:"$DERBY_HOME"/lib/derbytools.jar
+
+# SPARK
+
+export SPARK_HOME=/app/spark-2.3.0-bin-without-hadoop
+
+if [ "x$PATH" != "x" ] ; then
+	export PATH="$PATH":
+fi
+export PATH="$PATH""$SPARK_HOME"/bin
+
+export SPARK_DIST_CLASSPATH="$(hadoop classpath)"
