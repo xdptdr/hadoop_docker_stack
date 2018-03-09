@@ -1,4 +1,5 @@
 #!/bin/bash
+mkdir -p /data/hbase/files
 service ssh start
 . /etc/commonrc
 hdfs namenode -format

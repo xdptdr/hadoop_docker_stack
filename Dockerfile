@@ -53,6 +53,9 @@ COPY ./conf/hive/hive-env.sh /app/apache-hive-2.3.2-bin/conf
 COPY ./conf/hive/hive-site.xml /app/apache-hive-2.3.2-bin/conf
 COPY ./conf/hive/jpox.properties /app/apache-hive-2.3.2-bin/conf
 
+# HBASE
+COPY ./conf/hbase/hbase-env.sh /app/hbase-1.4.2-bin/conf
+
 # INITIALIZATION
 COPY ./conf/start.sh /
 RUN chmod +x /start.sh
