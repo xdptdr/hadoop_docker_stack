@@ -15,6 +15,7 @@ ADD ./archives/db-derby-10.14.1.0-bin.tar.gz /app
 ADD ./archives/spark-2.3.0-bin-without-hadoop.tgz /app
 ADD ./archives/hbase-1.4.2-bin.tar.gz /app
 ADD ./archives/solr-7.2.1.tgz /app
+ADD ./archives/zookeeper-3.4.10.tar.gz /app
 ADD /samples /samples
 
 # Fixing su

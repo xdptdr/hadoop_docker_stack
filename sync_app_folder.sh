@@ -63,3 +63,10 @@ if [ ! -e archives/solr-7.2.1.tgz ] ; then
 else
 	echo "archives/solr-7.2.1.tgz found"
 fi
+
+if [ ! -e archives/zookeeper-3.4.10.tar.gz ] ; then
+	wget http://apache.crihan.fr/dist/zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.tar.gz \
+	-O archives/zookeeper-3.4.10.tar.gz
+else
+	echo "archives/zookeeper-3.4.10.tar.gz found"
+fi
