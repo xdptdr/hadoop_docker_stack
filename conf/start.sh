@@ -1,5 +1,6 @@
 #!/bin/bash
-mkdir -p /data/hbase/files
+mkdir -p /data/zookeeper
+chown docker:docker -R /data
 service ssh start
 . /etc/commonrc
 hdfs namenode -format

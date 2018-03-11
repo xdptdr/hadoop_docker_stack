@@ -56,6 +56,7 @@ COPY ./conf/hive/jpox.properties /app/apache-hive-2.3.2-bin/conf
 # HBASE
 COPY ./conf/hbase/hbase-env.sh /app/hbase-1.4.2/conf
 COPY ./conf/hbase/hbase-site.xml /app/hbase-1.4.2/conf
+RUN mkdir /app/hbase-1.4.2/logs && chown docker:docker /app/hbase-1.4.2/logs
 
 # INITIALIZATION
 COPY ./conf/start.sh /
