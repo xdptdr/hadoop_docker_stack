@@ -3,7 +3,7 @@ FROM ubuntu
 # Updating, upgrading and installing some packages
 RUN apt-get update && \
 apt-get upgrade -y && \
-apt-get install -y wget curl ca-certificates openssh-server maven openssh-client sudo vim scala
+apt-get install -y wget curl ca-certificates openssh-server maven openssh-client sudo vim scala lsof
 
 # UNPACK
 WORKDIR /app
@@ -14,6 +14,7 @@ ADD ./archives/apache-hive-2.3.2-bin.tar.gz /app
 ADD ./archives/db-derby-10.14.1.0-bin.tar.gz /app
 ADD ./archives/spark-2.3.0-bin-without-hadoop.tgz /app
 ADD ./archives/hbase-1.4.2-bin.tar.gz /app
+ADD ./archives/solr-7.2.1.tgz /app
 ADD /samples /samples
 
 # Fixing su

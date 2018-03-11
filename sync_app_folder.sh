@@ -56,3 +56,10 @@ if [ ! -e archives/hbase-1.4.2-bin.tar.gz ] ; then
 else
 	echo "archives/hbase-1.4.2-bin.tar.gz found"
 fi
+
+if [ ! -e archives/solr-7.2.1.tgz ] ; then
+	wget http://apache.crihan.fr/dist/lucene/solr/7.2.1/solr-7.2.1.tgz \
+	-O archives/solr-7.2.1.tgz
+else
+	echo "archives/solr-7.2.1.tgz found"
+fi
