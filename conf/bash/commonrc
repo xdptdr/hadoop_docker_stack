@@ -1,8 +1,11 @@
+# JAVA
 export JAVA_HOME=/app/jdk1.8.0_162
 if [ "x$PATH" != "x" ] ; then
 	export PATH=:"$PATH"
 fi
-export PATH="$JAVA_HOME"/bin$PATH"
+export PATH="$JAVA_HOME"/bin"$PATH"
+
+# HADOOP
 
 export HADOOP_HOME=/app/hadoop-3.0.0
 export HADOOP_CONF_DIR="$HADOOP_HOME"/etc/hadoop
@@ -18,6 +21,11 @@ export HDFS_DATANODE_USER="docker"
 export HDFS_SECONDARYNAMENODE_USER="docker"
 export YARN_RESOURCEMANAGER_USER="docker"
 export YARN_NODEMANAGER_USER="docker"
+
+if [ "x$PATH" != "x" ] ; then
+	export PATH="$PATH":
+fi
+export PATH="$PATH""$HADOOP_HOME"/bin
 
 # PIG
 export PIG_HOME=/app/pig-0.17.0
@@ -66,3 +74,10 @@ fi
 export PATH="$PATH""$SPARK_HOME"/bin
 
 export SPARK_DIST_CLASSPATH="$(hadoop classpath)"
+
+# HBASE
+export HBASE_HOME=/app/hbase-1.4.2
+if [ "x$PATH" != "x" ] ; then
+	export PATH="$PATH":
+fi
+export PATH="$PATH""$HBASE_HOME"/bin

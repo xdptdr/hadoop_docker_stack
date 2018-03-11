@@ -54,7 +54,8 @@ COPY ./conf/hive/hive-site.xml /app/apache-hive-2.3.2-bin/conf
 COPY ./conf/hive/jpox.properties /app/apache-hive-2.3.2-bin/conf
 
 # HBASE
-COPY ./conf/hbase/hbase-env.sh /app/hbase-1.4.2-bin/conf
+COPY ./conf/hbase/hbase-env.sh /app/hbase-1.4.2/conf
+COPY ./conf/hbase/hbase-site.xml /app/hbase-1.4.2/conf
 
 # INITIALIZATION
 COPY ./conf/start.sh /
